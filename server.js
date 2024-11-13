@@ -11,7 +11,7 @@ const corsOptions = {
   credentials: true, // Permite el envío de cookies o encabezados de autenticación
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // Crear la conexión con mysql2
