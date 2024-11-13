@@ -11,6 +11,8 @@ const corsOptions = {
   credentials: true, // Permite el envío de cookies o encabezados de autenticación
 };
 
+app.options("*", cors()); // Responde a las solicitudes preflight
+
 app.use(cors(corsOptions));
 app.use(express.json());
 
