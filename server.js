@@ -6,10 +6,6 @@ const bcrypt = require("bcrypt");
 const salt = 10;
 
 const app = express();
-const corsOptions = {
-  origin: "http://localhost:3000", // Permite solicitudes solo desde esta URL
-  credentials: true, // Permite el envío de cookies o encabezados de autenticación
-};
 
 app.use(cors());
 app.use(express.json());
