@@ -49,7 +49,11 @@ const verifyUser = (req, res, next) => {
   }
 };
 
-app.get("/", verifyUser, (req, res) => {
+app.get("/", (req, res) => {
+  res.send("Holas");
+});
+
+app.get("/auth", verifyUser, (req, res) => {
   return res.json("Success");
 });
 
