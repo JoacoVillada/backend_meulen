@@ -6,7 +6,12 @@ const bcrypt = require("bcrypt");
 const salt = 10;
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000", // Permite solicitudes solo desde esta URL
+  credentials: true, // Permite el envío de cookies o encabezados de autenticación
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Crear la conexión con mysql2
