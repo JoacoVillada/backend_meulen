@@ -3,17 +3,11 @@ const mysql = require("mysql2"); // Cambiado a mysql2
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const cookieParser = require("cookie-parser");
 const salt = 10;
 
 const app = express();
-const corsOptions = {
-  origin: "http://localhost:3000", // Origen permitido
-  credentials: true, // Permitir credenciales
-};
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
-app.use(cookieParser());
 
 // Crear la conexión con mysql2
 const db = mysql.createConnection({
@@ -102,12 +96,6 @@ app.post("/login", (req, res) => {
       return res.json({ message: "User not found" });
     }
   });
-});
-
-app.get("/logout", (req, res) => {
-  res.clearCookie("token"); //COOOKIIEEESSS
-  res.clearCookie("userId");
-  return res.json("nashe");
 });
 
 // COSAS DEL USUARIO ---------------------
